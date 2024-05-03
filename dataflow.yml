@@ -2,12 +2,16 @@ nodes:
   - id: camera
     custom:
       source: camera/camera.py
+      inputs:
+        tick: dora/timer/millis/17
       outputs:
         - image
   - id: lidar
     custom:
       build: cargo build -p lidar
       source: target/debug/lidar
+      inputs:
+        tick: dora/timer/millis/50
       outputs:
         - scan
   - id: vision
